@@ -1,0 +1,9 @@
+Exercise 1:
+
+Mimic what we just created but on a new endpoint for /winter-meals
+
+This endpoint should follow the same logic as the /summer-meals endpoint but in reverse
+
+Bonus:
+
+Try changing around your location on the API!
