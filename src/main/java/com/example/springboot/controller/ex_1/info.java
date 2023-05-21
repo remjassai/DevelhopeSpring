@@ -1,4 +1,4 @@
-package com.example.springboot.controller;
+package com.example.springboot.controller.ex_1;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

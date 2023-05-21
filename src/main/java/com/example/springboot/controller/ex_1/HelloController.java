@@ -1,4 +1,4 @@
-package com.example.springboot.controller;
+package com.example.springboot.controller.ex_1;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
