@@ -10,7 +10,7 @@ public class Meal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
+    private static long idTot = 0;
     private String name;
     private String description;
     private double price;
@@ -20,6 +20,7 @@ public class Meal {
     private List<Ingredient> ingredients;
 
     public Meal(String name, String description, double price, boolean isSummerMeal) {
+        this.id= ++idTot;
         this.name = name;
         this.description = description;
         this.price = price;

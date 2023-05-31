@@ -19,7 +19,6 @@ public class ListController {
             new Meal("Chicken and Dumplings", "Chicken and dumplings is a soup or stew of chicken and dumplings.", 9.99, false),
             new Meal("Chicken Pot Pie", "Chicken pot pie is a dish consisting of a pastry crust with a filling of chicken and other vegetables and sometimes gravy.", 8.99, true),
             new Meal("Chicken Cordon Blue", "Chicken Cordon Blue is a dish consisting of a boneless chicken breast pounded thin,wrapped around ham and cheese, and then breaded and pan-fried.", 7.99, false)
-
     );
 
     private List<Meal> soupOfTheDay = Arrays.asList(
@@ -31,11 +30,24 @@ public class ListController {
             new Meal("Chicken Tortilla Soup", "Chicken tortilla soup is a soup made with chicken, tomatoes, and tortillas.", 1.99, true)
     );
 
+    //Exercise 1: Create a GetMapping that returns a list of meals
+    //1 - Annotate a new class with the @RestController annotation.
+    //2 - Create a new endpoint "/meals" using the @GetMapping annotation.
+    //3 - In the method, return a list of Meal objects.
+    @GetMapping("/meals")
+    public List<Meal> getListaMeals(){
+        return lista;
+    }
+
     @GetMapping("/list/{listIndex}")
     public ResponseEntity<Meal> mealList(@PathVariable("listIndex") int listIndex) {
         return ResponseEntity.ok(lista.get(listIndex));
     }
-
+    //Exercise 2: Create a GetMapping that returns a meal by name
+    //1 - Annotate a new class with the @RestController annotation.
+    //2 - Create a new endpoint "/meal/{name}" using the @GetMapping annotation.
+    //3 - In the method, add a query parameter "name" using the @PathVariable annotation.
+    //4 - Return a Meal object with the corresponding name.
     @GetMapping("/meal/{name}")
     public ResponseEntity<Meal> getSoupOfTheDay(@PathVariable("name") String name) {
         for (Meal meal : soupOfTheDay) {
@@ -45,7 +57,11 @@ public class ListController {
         }
         return ResponseEntity.notFound().build();
     }
-
+    //Exercise 3: Create a GetMapping that returns a meal/meals by any word of description
+    //1 - Annotate a new class with the @RestController annotation.
+    //2 - Create a new endpoint "/meal/description-match/{phrase}" using the @GetMapping annotation.
+    //3 - In the method, add a query parameter "description" using the @PathVariable annotation.
+    //4 - Return a Meal object with the corresponding description.
     @GetMapping("/meal/description-match/{phrase}")
     public ResponseEntity<List<Meal>> getMealByDescription(@PathVariable("phrase") String phrase){
         List<Meal> matchingMeals = new ArrayList<>();
@@ -60,7 +76,11 @@ public class ListController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    //Exercise 4: Create a GetMapping that returns a meal by price range
+    //1 - Annotate a new class with the @RestController annotation.
+    //2 - Create a new endpoint "/meal/price" using the @GetMapping annotation.
+    //3 - In the method, add two query parameters "min" and "max" using the @RequestParam annotation.
+    //4 - Return a list of Meal objects with prices within the specified range.
     @GetMapping("/meal/price")
     public ResponseEntity<List<Meal>> getMealByPriceRange(@RequestParam("min") double minPrice, @RequestParam("max") double maxPrice){
         List<Meal> mealsWithinRange = new ArrayList<>();

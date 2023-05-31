@@ -36,6 +36,7 @@ public class SecurityConfig {
     SecurityFilterChain web(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authorize -> {
                     try {
+                        http.csrf().disable();
                         authorize.requestMatchers("/api/meal/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                                 .and().httpBasic();
