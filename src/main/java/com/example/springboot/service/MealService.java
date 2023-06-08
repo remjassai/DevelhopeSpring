@@ -24,9 +24,17 @@ public class MealService {
         this.mealDao = mealDao;
     }
 
+
+
+
     public void addMeal(Meal meal) {
+        if (meal == null) throw new IllegalArgumentException("Meal cannot be null!");
+        if(meal.getName() == null || meal.getDescription().isEmpty()) throw new IllegalArgumentException("Meal cannot be empty!");
+        if(meal.getDescription() == null || meal.getDescription().isEmpty()) throw new IllegalArgumentException("Meal description cannot be empty!");
+        if(meal.getPrice() <=0) throw new IllegalArgumentException("Price cannot be less than or equal to 0!");
         mealDao.save(meal);
     }
+
 
     public List<Meal> getMeals() {
         return mealDao.findAll();
