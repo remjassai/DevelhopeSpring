@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RestaurantConfig {
-    private double minPrice;
-    private double todaysDiscount;
+    private double minPrice = 5.5;
+    private double todaysDiscount = 1.5;
 
     public RestaurantConfig() {
     }

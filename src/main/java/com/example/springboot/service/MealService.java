@@ -66,4 +66,8 @@ public class MealService {
             throw new RuntimeException(e);
         }
     }
+
+    public void createMeal(Meal meal) {
+        addMeal(meal);
+    }
 }

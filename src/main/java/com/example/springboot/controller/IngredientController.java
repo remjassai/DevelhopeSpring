@@ -23,7 +23,7 @@ public class IngredientController {
 
     @PutMapping("/add-ingredient")
     public ResponseEntity<Meal> addMeal() {
-
         return ResponseEntity.ok().build();
     }
+
 }
