@@ -12,12 +12,12 @@ import java.util.List;
 @RequestMapping("/ex_3")
 public class ex_3 {
     private List<Meal> mealsList = new ArrayList<>(Arrays.asList(
-            new Meal("Chicken Tikka Massala", "Chicken Tikka Massala id a dish of chunks of roasted marinated chiken in a spiced curry sauce.", 12.99, true),
-            new Meal("Chicken Parmesan", "Chicken Parmesan is a dish of chicken cutlet, topped with tomato sauce and melted cheese,baked in the oven.", 11.99, true),
-            new Meal("Chicken Fried Steak", "Chicken fried steak is a dish consisting of a breaded and pan-fried cube steak.", 10.99, false),
-            new Meal("Chicken and Dumplings", "Chicken and dumplings is a soup or stew of chicken and dumplings.", 9.99, false),
-            new Meal("Chicken Pot Pie", "Chicken pot pie is a dish consisting of a pastry crust with a filling of chicken and other vegetables and sometimes gravy.", 8.99, true),
-            new Meal("Chicken Cordon Blue", "Chicken Cordon Blue is a dish consisting of a boneless chicken breast pounded thin,wrapped around ham and cheese, and then breaded and pan-fried.", 7.99, false))
+            new Meal("Chicken Tikka Massala", "Chicken Tikka Massala id a dish of chunks of roasted marinated chiken in a spiced curry sauce.", 12.99, false,true),
+            new Meal("Chicken Parmesan", "Chicken Parmesan is a dish of chicken cutlet, topped with tomato sauce and melted cheese,baked in the oven.", 11.99,false, true),
+            new Meal("Chicken Fried Steak", "Chicken fried steak is a dish consisting of a breaded and pan-fried cube steak.", 10.99, false,true),
+            new Meal("Chicken and Dumplings", "Chicken and dumplings is a soup or stew of chicken and dumplings.", 9.99, false,true),
+            new Meal("Chicken Pot Pie", "Chicken pot pie is a dish consisting of a pastry crust with a filling of chicken and other vegetables and sometimes gravy.", 8.99, true,true),
+            new Meal("Chicken Cordon Blue", "Chicken Cordon Blue is a dish consisting of a boneless chicken breast pounded thin,wrapped around ham and cheese, and then breaded and pan-fried.", 7.99, false,true))
     );
 
     @GetMapping(value = "/getMeals")

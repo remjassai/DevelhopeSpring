@@ -1,12 +1,14 @@
 package com.example.springboot.controller;
 
 import com.example.springboot.component.RestaurantConfig;
+import com.example.springboot.model.Ingredient;
 import com.example.springboot.model.Meal;
 import com.example.springboot.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -15,14 +17,14 @@ public class MealController {
     private RestaurantConfig restaurantConfig;
 
     @Autowired
-    public MealController(MealService mealSevice, RestaurantConfig restaurantConfig) {
-        this.mealService = mealSevice;
+    public MealController(MealService mealService, RestaurantConfig restaurantConfig) {
+        this.mealService = mealService;
         this.restaurantConfig = restaurantConfig;
     }
 
     @PostMapping
     public ResponseEntity<?> createMeal(@RequestBody Meal meal){
-        mealService.createMeal(meal);
+        mealService.addMeal(meal);
         return ResponseEntity.ok().build();
     }
 
@@ -48,10 +50,10 @@ public class MealController {
         }
     }
 
-    @PutMapping("/update/meal")
-    public ResponseEntity<String> updateMeal(@PathVariable Meal meal){
-        mealService.updateMeal(meal);
-        return ResponseEntity.ok("Meal updated!");
+    @PutMapping("/update/{mealId}")
+    public ResponseEntity<String> updateMeal(@RequestBody Meal meal,@PathVariable long mealId){
+        mealService.updateMeal(meal, mealId);
+        return ResponseEntity.ok().build();
     }
 
 
@@ -61,6 +63,37 @@ public class MealController {
         return ResponseEntity.ok().build();
     }
 
+//    @GetMapping("/insert-meal-test")
+//    public ResponseEntity<?> insertMealTest(){
+//        mealService.insertMealTest();
+//        return ResponseEntity.ok().build();
+//    }
 
+    @PostMapping("/meal-many-to-one")
+    public ResponseEntity<Meal> mealManyToOne(){
+        Meal meal = new Meal("Xiaolongabao", "Soup dumplings",10.00,false,true);
+        Ingredient ingredient = new Ingredient("Dumpling", true,true,false,true);
+
+        ingredient.setMeal(meal);
+        meal.setIngredients(Arrays.asList(ingredient));
+        mealService.addMeal(meal);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity<String> test(){
+        mealService.test();
+        return ResponseEntity.ok("test");
+    }
+
+    @GetMapping("/summer-meals")
+    public ResponseEntity<List<Meal>> getSummerMeals(){
+        return ResponseEntity.ok(mealService.getSummerMeals());
+    }
+
+    @GetMapping("/winter-meals")
+    public ResponseEntity<List<Meal>> getWinterMeals(){
+        return ResponseEntity.ok(mealService.getWinterMeals());
+    }
 
 }

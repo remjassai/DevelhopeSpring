@@ -7,6 +7,7 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.mashape.unirest.request.GetRequest;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,7 +45,8 @@ public class MealService {
         mealDao.deleteById(id);
     }
 
-    public void updateMeal(Meal meal) {
+    public void updateMeal(Meal meal, long mealId) {
+        mealDao.deleteById(mealId);
         mealDao.save(meal);
     }
 
@@ -67,7 +69,15 @@ public class MealService {
         }
     }
 
-    public void createMeal(Meal meal) {
-        addMeal(meal);
+    public void test() {
+        mealDao.findByName("Xiaolongbao").forEach(System.out::println);
+        System.out.println();
+    }
+
+    public List<Meal> getWinterMeals() {
+        Double currentTemperatureInCentigrade = getCurrentTemperatureInCentigrade();
+        if(currentTemperatureInCentigrade > MIN_SUMMER_TEMP)
+            return new ArrayList<>();
+        return mealDao.findByIsWinterMeal(true);
     }
 }

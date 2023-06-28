@@ -13,21 +13,21 @@ import java.util.List;
 
 @RestController
 public class ListController {
-    private List<Meal> lista = Arrays.asList(new Meal("Chicken Tikka Massala", "Chicken Tikka Massala id a dish of chunks of roasted marinated chiken in a spiced curry sauce.", 12.99, true),
-            new Meal("Chicken Parmesan", "Chicken Parmesan is a dish of chicken cutlet, topped with tomato sauce and melted cheese,baked in the oven.", 11.99, true),
-            new Meal("Chicken Fried Steak", "Chicken fried steak is a dish consisting of a breaded and pan-fried cube steak.", 10.99, false),
-            new Meal("Chicken and Dumplings", "Chicken and dumplings is a soup or stew of chicken and dumplings.", 9.99, false),
-            new Meal("Chicken Pot Pie", "Chicken pot pie is a dish consisting of a pastry crust with a filling of chicken and other vegetables and sometimes gravy.", 8.99, true),
-            new Meal("Chicken Cordon Blue", "Chicken Cordon Blue is a dish consisting of a boneless chicken breast pounded thin,wrapped around ham and cheese, and then breaded and pan-fried.", 7.99, false)
+    private List<Meal> lista = Arrays.asList(new Meal("Chicken Tikka Massala", "Chicken Tikka Massala id a dish of chunks of roasted marinated chiken in a spiced curry sauce.", 12.99,false, true),
+            new Meal("Chicken Parmesan", "Chicken Parmesan is a dish of chicken cutlet, topped with tomato sauce and melted cheese,baked in the oven.", 11.99,false, true),
+            new Meal("Chicken Fried Steak", "Chicken fried steak is a dish consisting of a breaded and pan-fried cube steak.", 10.99, false,true),
+            new Meal("Chicken and Dumplings", "Chicken and dumplings is a soup or stew of chicken and dumplings.", 9.99, false,true),
+            new Meal("Chicken Pot Pie", "Chicken pot pie is a dish consisting of a pastry crust with a filling of chicken and other vegetables and sometimes gravy.", 8.99,false, true),
+            new Meal("Chicken Cordon Blue", "Chicken Cordon Blue is a dish consisting of a boneless chicken breast pounded thin,wrapped around ham and cheese, and then breaded and pan-fried.", 7.99, false,true)
     );
 
     private List<Meal> soupOfTheDay = Arrays.asList(
-            new Meal("chicken Noodle Soup", "Chicken noodle soup is a soup made with chicken, chicken broth, and egg noodles.", 6.99, true),
-            new Meal("Tomato Soup", "Tomato soup is a soup made from tomatoes, onions, and other vegetables, often served with a grilled cheese sandwich.", 5.99, true),
-            new Meal("Clam Chowder", "Clam chowder is a soup made with clams, potatoes, onions, and other vegetables.", 4.99, true),
-            new Meal("French Onion Soup", "French onion soup is a soup made with onions, beef broth, and beef stock.", 3.99, false),
-            new Meal("Minestrone Soup", "Minestrone soup is a soup made with vegetables, pasta, and beans.", 2.99, true),
-            new Meal("Chicken Tortilla Soup", "Chicken tortilla soup is a soup made with chicken, tomatoes, and tortillas.", 1.99, true)
+            new Meal("chicken Noodle Soup", "Chicken noodle soup is a soup made with chicken, chicken broth, and egg noodles.", 6.99,false, true),
+            new Meal("Tomato Soup", "Tomato soup is a soup made from tomatoes, onions, and other vegetables, often served with a grilled cheese sandwich.", 5.99,false, true),
+            new Meal("Clam Chowder", "Clam chowder is a soup made with clams, potatoes, onions, and other vegetables.", 4.99,false, true),
+            new Meal("French Onion Soup", "French onion soup is a soup made with onions, beef broth, and beef stock.", 3.99, false,true),
+            new Meal("Minestrone Soup", "Minestrone soup is a soup made with vegetables, pasta, and beans.", 2.99,false, true),
+            new Meal("Chicken Tortilla Soup", "Chicken tortilla soup is a soup made with chicken, tomatoes, and tortillas.", 1.99,false, true)
     );
 
     //Exercise 1: Create a GetMapping that returns a list of meals
